@@ -12,7 +12,7 @@ const todo = props => {
   }
   
   return (
-    <div className={props.className}>
+    <div className="list-group-item list-group-item-success">
       <h3>{props.title}</h3>
       <p>{props.description}</p>
       <button className="btn btn-primary right-buffer" onClick={props.mainClick}>
