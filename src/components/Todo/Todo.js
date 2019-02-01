@@ -10,9 +10,8 @@ const todo = props => {
       </button>
     );
   }
-  
   return (
-    <div className="list-group-item list-group-item-success">
+    <div className={props.className}>
       <h3>{props.title}</h3>
       <p>{props.description}</p>
       <button className="btn btn-primary right-buffer" onClick={props.mainClick}>

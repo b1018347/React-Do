@@ -11,8 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initalState = {
-    todos: [],
-    completedTodos: []
+    todos: []
 };
 
 const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : initalState;

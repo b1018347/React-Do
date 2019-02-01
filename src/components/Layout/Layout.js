@@ -8,31 +8,33 @@ import {addTodo, deleteTodo, completeTodo, undoTodo} from '../../store/actions/a
 
 class Layout extends Component {
   render() {
-    const todos =this.props.todos.map((todo) => {
-        return (
+    const todos = this.props.todos.map((todo) => {
+      
+        return !todo.completed ? (
           <Todo
-            className="list-group-item"
             key={todo.id}
             title={todo.title}
             description={todo.description}
             buttonText="Complete"
-            canRemove={true}
+            canRemove
             mainClick={() => this.props.onCompleteTodo(todo.id)}
             deleteClick={() => this.props.onDeleteTodo(todo.id)}
+            className="list-group-item"
           />
-        );
+        ) : null;
     });
     
-    const completedTodos =  this.props.completedTodos.map((todo) => {
-        return (
+    const completedTodos =  this.props.todos.map((todo) => {
+        return todo.completed ? (
           <Todo
             key={todo.id}
             title={todo.title}
             description={todo.description}
             buttonText="Not done"
             mainClick={() => this.props.onUndoTodo(todo.id)}
+            className="list-group-item list-group-item-success"
           />
-        );
+        ) : null;
     }); 
 
     return (
@@ -60,8 +62,7 @@ class Layout extends Component {
 
 const mapStateToProps = state => {
     return {
-      todos: state.todos,
-      completedTodos: state.completedTodos
+      todos: state.todos
     };
   }
   
