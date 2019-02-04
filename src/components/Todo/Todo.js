@@ -3,7 +3,7 @@ import './Todo.css';
 
 const todo = props => {
   let canRemove = null;
-  if (props.canRemove) {
+  if (!props.completed) {
     canRemove = (
       <button onClick={props.deleteClick} className="btn btn-danger">
         Delete
@@ -14,7 +14,7 @@ const todo = props => {
     <div className={props.className}>
       <h3>{props.title}</h3>
       <p>{props.description}</p>
-      <button className="btn btn-primary right-buffer" onClick={props.mainClick}>
+      <button className="btn btn-primary btn-complete right-buffer" onClick={props.mainClick}>
         {props.buttonText}
       </button>
       {canRemove}
