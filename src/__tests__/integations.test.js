@@ -25,6 +25,7 @@ it('can add a todo', () => {
   wrapper.find('form').simulate('submit');
   wrapper.update();
   expect(wrapper.find(Todo).length).toEqual(1);
+  wrapper.unmount();
 });
 
 it('can delete a todo', () => {
@@ -43,6 +44,7 @@ it('can delete a todo', () => {
   wrapper.find('.btn-danger').first().simulate('click');
   wrapper.update();
   expect(wrapper.find(Todo).length).toEqual(2);
+  wrapper.unmount();
 });
 
 it('can complete a todo', () => {
@@ -79,8 +81,6 @@ it('can set a todo to incomplete and delete it', () => {
   wrapper.find('.btn-danger').first().simulate('click');
   wrapper.update();
   expect(wrapper.find(Todo).length).toEqual(0);
-});
-
-afterEach(() => {
   wrapper.unmount();
 });
+
